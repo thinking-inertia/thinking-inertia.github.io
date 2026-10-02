@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Thinking Inertia</title>
+  <desc id="desc">A stylized T with an orbital trace</desc>
+  <defs>
+    <linearGradient id="signal" x1="12" y1="10" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79c8ff"/>
+      <stop offset=".52" stop-color="#63d7bd"/>
+      <stop offset="1" stop-color="#d4ef83"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#081b2d"/>
+  <path d="M16 19h32M32 19v28M23 47h18" fill="none" stroke="url(#signal)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+  <path d="M12 36c5-12 33-16 41-2" fill="none" stroke="#e9f8ff" stroke-linecap="round" stroke-opacity=".34" stroke-width="2"/>
+  <circle cx="51" cy="34" r="3.2" fill="#d4ef83"/>
+</svg>
