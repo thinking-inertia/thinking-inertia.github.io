@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071a2c">
+    <meta name="description" content="Thinking Inertia: response-level evidence that language models can keep emitting visible inference after being told not to think.">
+    <meta property="og:title" content="Thinking Inertia: LLMs Keep Thinking When Told Not To">
+    <meta property="og:description" content="A response-level study of visible pre-answer text across answer spaces and no-thinking interventions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thinking-inertia.github.io/">
+    <meta property="og:image" content="assets/overview.png">
+    <title>Thinking Inertia · LLMs Keep Thinking When Told Not To</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071a2c'/%3E%3Cpath d='M17 20h30M17 32h20M17 44h30' stroke='%237be0cf' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='32' r='5' fill='%23ffb26b'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="#top" aria-label="Thinking Inertia home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Thinking Inertia</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#measurement">Measurement</a>
+          <a href="#findings">Findings</a>
+          <a href="#validation">Human study</a>
+          <a href="#reproduce">Reproduce</a>
+          <a class="nav-code" href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="top" class="hero section-pad">
+        <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+        <div class="hero-grid container">
+          <div class="hero-copy reveal">
+            <p class="kicker"><span class="pulse-dot"></span> Research project · response-level evaluation</p>
+            <h1>Thinking Inertia:<br><em>LLMs Keep Thinking<br class="desktop-break"> When Told Not To</em></h1>
+            <p class="hero-lede">When a model is asked for an answer only, visible pre-answer work does not disappear uniformly. We measure what remains, where it appears, and how answer space shapes it.</p>
+            <div class="author-block">
+              <p class="authors">Dianqiao Lei<sup>1</sup> · Kevin Qinghong Lin<sup>2†✉</sup> · Pan Lu<sup>3</sup> · Philip Torr<sup>2✉</sup> · James Zou<sup>3✉</sup></p>
+              <p class="affiliations"><sup>1</sup> Tsinghua University &nbsp;·&nbsp; <sup>2</sup> University of Oxford &nbsp;·&nbsp; <sup>3</sup> Stanford University</p>
+              <p class="author-note"><sup>†</sup> Project lead &nbsp;·&nbsp; <sup>✉</sup> Correspondence</p>
+            </div>
+            <div class="resource-row" aria-label="Project resources">
+              <a class="resource-button primary" href="#paper"><span class="resource-icon">↗</span><span><small>Read</small> Paper <b>soon</b></span></a>
+              <a class="resource-button" href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener"><span class="resource-icon">⌘</span><span><small>Explore</small> Code <b>GitHub</b></span></a>
+              <a class="resource-button" href="https://thinking-inertia.github.io/" aria-current="page"><span class="resource-icon">◎</span><span><small>Visit</small> Project page <b>live soon</b></span></a>
+            </div>
+          </div>
+
+          <div class="hero-art reveal delay-1" aria-label="Illustration of a response split into question, pre-answer text, and final answer">
+            <div class="art-topline"><span>response trace</span><span class="art-status"><i></i> observable</span></div>
+            <div class="trace-row trace-question">
+              <span class="trace-label">Q</span>
+              <div class="trace-content"><span class="ghost-line wide"></span><span class="ghost-line short"></span></div>
+              <span class="trace-tag">question</span>
+            </div>
+            <div class="trace-connector"><span></span><span></span><span></span></div>
+            <div class="trace-row trace-text">
+              <span class="trace-label accent">T</span>
+              <div class="trace-content"><span class="text-line"></span><span class="text-line medium"></span><span class="text-line tiny"></span></div>
+              <span class="trace-tag accent-tag">pre-answer</span>
+            </div>
+            <div class="trace-connector warm"><span></span><span></span><span></span></div>
+            <div class="trace-row trace-answer">
+              <span class="trace-label">A</span>
+              <div class="answer-chip">answer</div>
+              <span class="trace-tag">final</span>
+            </div>
+            <div class="art-footer"><span>no-thinking instruction</span><span class="arrow-line">→</span><strong>what remains visible?</strong></div>
+          </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span> scroll to explore</div>
+      </section>
+
+      <section class="video-section section-pad section-light" aria-labelledby="demo-title">
+        <div class="container">
+          <div class="video-frame reveal">
+            <div class="video-noise" aria-hidden="true"></div>
+            <div class="video-placeholder">
+              <div class="play-orb" aria-hidden="true"><span></span></div>
+              <p class="video-label">Project demo</p>
+              <h2 id="demo-title">A short walkthrough is coming soon.</h2>
+              <p>We are preparing a compact visual tour of the evaluation protocol and the answer-space staircase.</p>
+            </div>
+            <div class="video-meta"><span>DEMO VIDEO</span><span>00:00 / COMING SOON</span></div>
+          </div>
+          <!-- Replace the placeholder above with a <video controls> element when the demo is ready. -->
+        </div>
+      </section>
+
+      <section class="news-strip section-pad-tight" aria-label="News">
+        <div class="container news-inner">
+          <p class="eyebrow">News</p>
+          <div class="news-items">
+            <p><time datetime="2026-10">2026.10</time><span>Public release of the reusable evaluation and metric-validation code.</span></p>
+            <p><time datetime="2026-10">Now</time><span>Project page in preparation · paper and demo links will be added here.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section-pad section-light" aria-labelledby="overview-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">01 / Overview</p>
+            <h2 id="overview-title">No-thinking is a behavior of the emitted response.</h2>
+            <p class="section-intro">We split each answer into visible pre-answer text <strong>T</strong> and final answer <strong>A</strong>. The central question is deliberately observable: when a model is told to answer directly, what question-conditioned payload still appears before <strong>A</strong>?</p>
+          </div>
+          <figure class="overview-figure reveal delay-1">
+            <div class="figure-frame"><img src="assets/overview.png" alt="Overview of ETR, EIR, QRel., and visible token length across answer spaces and intervention modes."></div>
+            <figcaption><span>Figure overview</span> Three response-level views make the distinction explicit: strict answer-only compliance, question-conditioned relevance, and visible explicit inference.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="measurement" class="section-pad section-tint" aria-labelledby="measurement-title">
+        <div class="container">
+          <div class="section-heading split-heading reveal">
+            <div><p class="eyebrow">02 / Measurement</p><h2 id="measurement-title">Three levels, one observable object.</h2></div>
+            <p class="heading-aside">The hierarchy moves from format compliance to relevance and then to a direct judgment of inference. No single similarity score is treated as a reasoning detector.</p>
+          </div>
+          <div class="level-grid">
+            <article class="level-card level-one reveal">
+              <div class="level-head"><span class="level-number">01</span><span class="level-kind">structure</span></div>
+              <h3>ETR</h3>
+              <p class="level-title">Empty-thinking ratio</p>
+              <p>Strict answer-only compliance: does the response contain no visible pre-answer text?</p>
+              <div class="level-formula"><span>T</span><span class="formula-op">=</span><span>∅</span></div>
+            </article>
+            <article class="level-card level-two reveal delay-1">
+              <div class="level-head"><span class="level-number">02</span><span class="level-kind">instruction-aware</span></div>
+              <h3>QRel.</h3>
+              <p class="level-title">Pre-answer relevance</p>
+              <p>How strongly does <strong>T</strong> help answer <strong>Q</strong>? An instruction-aware encoder provides the relevance signal, not a reasoning claim.</p>
+              <div class="level-formula"><span>Q</span><span class="formula-op">↔</span><span>T</span></div>
+            </article>
+            <article class="level-card level-three reveal delay-2">
+              <div class="level-head"><span class="level-number">03</span><span class="level-kind">blinded judgment</span></div>
+              <h3>EIR</h3>
+              <p class="level-title">Explicit inference rate</p>
+              <p>A frontier-model judge labels visible deduction, computation, comparison, elimination, rule use, evidence, or causality.</p>
+              <div class="level-formula"><span>Q,T</span><span class="formula-op">→</span><span>inference?</span></div>
+            </article>
+          </div>
+          <div class="measurement-note reveal"><span class="note-icon">↳</span><p>All three levels operate on the emitted text. They support claims about <em>visible</em> reasoning and thinking inertia; they do not attempt to infer latent cognition.</p></div>
+        </div>
+      </section>
+
+      <section id="findings" class="section-pad section-light" aria-labelledby="findings-title">
+        <div class="container">
+          <div class="section-heading reveal"><p class="eyebrow">03 / Findings</p><h2 id="findings-title">The signal has a shape.</h2><p class="section-intro">Across models, controls, and answer interfaces, the same response-level pattern keeps returning.</p></div>
+          <div class="finding-grid">
+            <article class="finding-card stair-card reveal">
+              <div class="card-top"><span class="card-index">A</span><span class="card-kicker">answer-space staircase</span></div>
+              <h3>Bool <i>&lt;</i> MCQ <i>&lt;</i> Open</h3>
+              <p>Visible explicit inference rises as the answer space opens. Open-ended answers preserve the most room for question-conditioned work.</p>
+              <div class="stair-bars" aria-label="Relative increase from Boolean to multiple-choice to open-ended answers">
+                <div><span class="bar-label">Bool</span><span class="bar"><i style="width: 22%"></i></span><b>low</b></div>
+                <div><span class="bar-label">MCQ</span><span class="bar"><i style="width: 55%"></i></span><b>mid</b></div>
+                <div><span class="bar-label">Open</span><span class="bar"><i style="width: 92%"></i></span><b>high</b></div>
+              </div>
+            </article>
+            <article class="finding-card inertia-card reveal delay-1">
+              <div class="card-top"><span class="card-index">B</span><span class="card-kicker">thinking inertia</span></div>
+              <h3>M5 <i>&lt;</i> M2, throughout</h3>
+              <p>Stricter no-thinking controls suppress visible inference in each answer space, but do not erase the staircase itself.</p>
+              <div class="mode-compare" aria-label="M5 is lower than M2 in each answer space"><div><span>M2</span><i></i><b>native</b></div><div><span>M5</span><i></i><b>stricter</b></div></div>
+            </article>
+            <article class="finding-card observable-card reveal delay-2">
+              <div class="card-top"><span class="card-index">C</span><span class="card-kicker">scope of the claim</span></div>
+              <h3>Observable, not latent.</h3>
+              <p>ETR, QRel., and EIR describe what the model emits before its final answer. The title's “thinking” refers to visible explicit inference, not hidden cognition.</p>
+              <div class="scope-pills"><span>response-level</span><span>auditable</span><span>blinded</span></div>
+            </article>
+          </div>
+          <div class="callout reveal"><div class="callout-symbol">✦</div><p><strong>Takeaway.</strong> “Answer only” is not one uniform switch. The answer interface and intervention mode jointly shape how much visible work survives.</p></div>
+        </div>
+      </section>
+
+      <section id="validation" class="section-pad validation-section" aria-labelledby="validation-title">
+        <div class="container validation-grid">
+          <div class="validation-copy reveal"><p class="eyebrow">04 / Human study</p><h2 id="validation-title">The hierarchy was checked by people, too.</h2><p>A unified blinded study complements the automated checks. Five annotators reviewed the same 600 proportion-matched outputs, scored question relevance on a five-point scale, and applied the mutually exclusive reasoning rubric with an exact supporting span.</p><p>The human ratings and labels preserve the same metric hierarchy and the central answer-space and intervention comparisons. This validates the measurements and the conclusions they support without turning a response-level audit into a claim about latent cognition.</p></div>
+          <div class="validation-panel reveal delay-1">
+            <div class="validation-stat"><strong>600</strong><span>outputs reviewed</span></div>
+            <div class="validation-stat"><strong>5</strong><span>independent annotators</span></div>
+            <div class="validation-stat"><strong>2</strong><span>complementary checks</span></div>
+            <div class="validation-rubric"><span class="rubric-label">reasoning rubric</span><div><b>generic / off-topic</b><b>paraphrase-only</b><b>relevant, non-inferential</b><b class="active">explicit inference</b><b>unclear</b></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reproduce" class="section-pad section-dark" aria-labelledby="reproduce-title">
+        <div class="container reproduce-grid">
+          <div class="reproduce-copy reveal"><p class="eyebrow light">04 / Reproduce</p><h2 id="reproduce-title">Start from a clean response trace.</h2><p>The public release contains the reusable runner, normalized benchmark inputs, parsers, scoring utilities, and QRel./EIR tools. Paper-specific raw corpora and human-review records remain outside the release.</p><a class="text-link" href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener">Open the repository <span>↗</span></a></div>
+          <div class="code-card reveal delay-1" aria-label="Example command">
+            <div class="code-top"><span><i></i><i></i><i></i></span><small>quick start</small></div>
+            <pre><code><span class="code-muted"># install</span>
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+
+<span class="code-muted"># run a six-mode demo</span>
+python -m thinking_inertia.eval_thinking_spectrum \
+  --datasets boolq strategyqa mmlu \
+  --modes 1 2 3 4 5 6 \
+  --max-samples 200</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="paper" class="section-pad section-light citation-section" aria-labelledby="citation-title">
+        <div class="container citation-grid">
+          <div class="reveal"><p class="eyebrow">05 / Citation</p><h2 id="citation-title">If this is useful, cite the work.</h2><p>The paper link will be added as soon as the public version is available.</p><div class="citation-links"><span class="pending-link">arXiv · coming soon</span><a href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener">GitHub · thinking-inertia ↗</a></div></div>
+          <div class="bibtex reveal delay-1"><button class="copy-bib" type="button" data-copy-target="bibtex-text">Copy BibTeX</button><pre id="bibtex-text">@article{lei2026thinkinginertia,
+  title   = {Thinking Inertia: LLMs Keep Thinking When Told Not To},
+  author  = {Lei, Dianqiao and Lin, Kevin Qinghong and Lu, Pan
+             and Torr, Philip and Zou, James},
+  year    = {2026}
+}</pre><span class="copy-status" role="status" aria-live="polite"></span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-inner"><p><span class="brand-mark small" aria-hidden="true"><i></i><i></i><i></i></span> Thinking Inertia</p><p>Response-level evidence for visible reasoning.</p><p>© <span id="year">2026</span> The authors</p></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
