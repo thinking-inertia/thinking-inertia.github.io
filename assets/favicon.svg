@@ -2,14 +2,20 @@
   <title id="title">Thinking Inertia</title>
   <desc id="desc">A stylized T with an orbital trace</desc>
   <defs>
-    <linearGradient id="signal" x1="12" y1="10" x2="54" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#79c8ff"/>
-      <stop offset=".52" stop-color="#63d7bd"/>
-      <stop offset="1" stop-color="#d4ef83"/>
+    <linearGradient id="paper" x1="7" y1="5" x2="57" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f5fbff"/>
+      <stop offset=".58" stop-color="#eaf6ff"/>
+      <stop offset="1" stop-color="#e8fbf4"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="14" y1="14" x2="51" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2378d5"/>
+      <stop offset=".58" stop-color="#278fc1"/>
+      <stop offset="1" stop-color="#28b58f"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#081b2d"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#paper)" stroke="#c5dff0" stroke-width="2"/>
   <path d="M16 19h32M32 19v28M23 47h18" fill="none" stroke="url(#signal)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-  <path d="M12 36c5-12 33-16 41-2" fill="none" stroke="#e9f8ff" stroke-linecap="round" stroke-opacity=".34" stroke-width="2"/>
-  <circle cx="51" cy="34" r="3.2" fill="#d4ef83"/>
+  <path d="M12 36c5-12 33-16 41-2" fill="none" stroke="#1d5b8b" stroke-linecap="round" stroke-opacity=".42" stroke-width="2"/>
+  <circle cx="51" cy="34" r="3.2" fill="#28b58f"/>
+  <circle cx="14" cy="18" r="1.7" fill="#2378d5" opacity=".55"/>
 </svg>
