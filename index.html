@@ -8,7 +8,7 @@
     <meta property="og:description" content="Response-level evidence for visible inference after no-thinking instructions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thinking-inertia.github.io/">
-    <meta property="og:image" content="assets/overview.png">
+    <meta property="og:image" content="assets/figure1.png">
     <title>Thinking Inertia · LLMs Keep Thinking When Told Not To</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1b2d'/%3E%3Cpath d='M16 21h32M16 32h21M16 43h32' stroke='%2355b6ae' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,99 +24,31 @@
         <p class="authors text-center mb-1"><span class="au">Dianqiao Lei</span><sup>1</sup>, <span class="au">Kevin Qinghong Lin</span><sup>2&dagger;&lowast;</sup>, <span class="au">Pan Lu</span><sup>3</sup>, <span class="au">Philip Torr</span><sup>2&lowast;</sup>, <span class="au">James Zou</span><sup>3&lowast;</sup></p>
         <p class="text-center subtitle mb-1"><sup>1</sup> Tsinghua University &nbsp;&middot;&nbsp; <sup>2</sup> University of Oxford &nbsp;&middot;&nbsp; <sup>3</sup> Stanford University</p>
         <p class="text-center subtitle small mb-4"><sup>&dagger;</sup>Project lead &nbsp;&middot;&nbsp; <sup>&lowast;</sup>Correspondence</p>
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-          <a href="#paper" class="btn btn-dark pill">&#128196;&nbsp; Paper <span class="button-note">coming soon</span></a>
-          <a href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener" class="btn btn-dark pill">&#128187;&nbsp; GitHub</a>
-          <a href="https://thinking-inertia.github.io/" class="btn btn-dark pill">&#127760;&nbsp; Project Page</a>
-        </div>
+        <div class="d-flex flex-wrap justify-content-center gap-2"><a href="#paper" class="btn btn-dark pill">&#128196;&nbsp; Paper <span class="button-note">coming soon</span></a><a href="https://github.com/HakunaMatata04/thinking-inertia" target="_blank" rel="noopener" class="btn btn-dark pill">&#128187;&nbsp; GitHub</a><a href="https://thinking-inertia.github.io/" class="btn btn-dark pill">&#127760;&nbsp; Project Page</a></div>
       </div>
     </section>
 
     <main id="main-content">
-      <section class="pt-5 pb-2">
-        <div class="container" style="max-width: 940px;">
-          <div class="main-video" aria-label="Project demo video placeholder">
-            <div class="video-grid" aria-hidden="true"></div>
-            <div class="video-placeholder"><button type="button" class="play-button" aria-label="Demo video coming soon"><span></span></button><p class="mb-1">Project demo</p><strong>Walkthrough coming soon</strong><small>Evaluation protocol &middot; answer-space staircase &middot; visible inference</small></div>
-            <div class="video-corner">DEMO VIDEO &middot; COMING SOON</div>
-          </div>
-          <!-- Replace this placeholder with the final <video controls> element when the demo recording is ready. -->
-        </div>
-      </section>
+      <section class="pt-5 pb-2"><div class="container" style="max-width: 940px;"><div class="main-video" aria-label="Project demo video placeholder"><div class="video-grid" aria-hidden="true"></div><div class="video-placeholder"><button type="button" class="play-button" aria-label="Demo video coming soon"><span></span></button><p class="mb-1">Project demo</p><strong>Walkthrough coming soon</strong><small>Surface proxies &middot; response decomposition &middot; visible inference</small></div><div class="video-corner">DEMO VIDEO &middot; COMING SOON</div></div><!-- Replace this placeholder with the final <video controls> element when the demo recording is ready. --></div></section>
 
-      <section class="py-5 bg-body-tertiary border-top border-bottom">
-        <div class="container" style="max-width: 940px;">
-          <h2 class="section-title">&#128227; News</h2>
-          <div class="section-rule"></div>
-          <ul class="news-list mb-0"><li><time datetime="2026-10">2026.10</time><span>Public release of the reusable response-level evaluation and metric-validation code.</span></li><li><time datetime="2026-10">Now</time><span>Project page launched; the paper and demo links will be added as they become public.</span></li></ul>
-        </div>
-      </section>
+      <section id="abstract" class="py-5 bg-body-tertiary"><div class="container" style="max-width: 820px;"><h2 class="section-title">Abstract</h2><div class="section-rule"></div><p class="lead-abstract mb-3">Large Language Models (LLMs) increasingly ship with explicit &ldquo;thinking modes,&rdquo; yet their counterpart, &ldquo;no-think,&rdquo; has received far less attention. In this work, we study LLMs&rsquo; &ldquo;no-think&rdquo; behavior along two axes.</p><p class="lead-abstract mb-3"><strong>a. How to measure &ldquo;no-thinking&rdquo;?</strong> Prior work typically defines &ldquo;no-thinking&rdquo; through proxies such as a disabled thinking mode or the absence of long traces. These proxies are unreliable: disabled thinking modes still emit extended reasoning, or long traces often contain uninformative filler rather than genuine inference. We instead normalize any LLM response into pre-answer trace and final answer, and evaluate it at three levels: (i) an <strong>Empty-Thinking Ratio (ETR)</strong> for strict answer-only compliance; (ii) an instruction-aware <strong>Question&ndash;Pre-answer Relevance (QRel.)</strong> score to measure similarity between the question and pre-answer trace; and (iii) an additional LLM-as-judge <strong>Explicit Inference Rate (EIR)</strong> for visible explicit inference. Together, these levels separate answer-only output, relevant but non-inferential text, and explicit inference. Human studies demonstrate the effectiveness of these metrics.</p><p class="lead-abstract mb-0"><strong>b. How does no-thinking vary across tasks and models?</strong> We evaluate six prompting intervention settings on six widely used LLMs, both open-source and commercial, across three question types: Boolean, multiple-choice, and open-ended. We find that explicit no-think controls cannot reliably eliminate visible explicit inference; models instead exhibit <strong>&ldquo;Thinking Inertia&rdquo;</strong>: visible explicit inference persists even under strict no-thinking controls and becomes progressively more prevalent as the answer space opens. Accuracy remains relatively stable on Boolean and multiple-choice tasks, whereas open-ended tasks expose a trade-off between answer-only compliance and task accuracy. Finally, rewriting the same questions across answer spaces shows that supplying candidate answers makes answer-only responses substantially easier to produce. Taken together, these findings establish no-thinking as a non-trivial capability of LLMs: stopping explicit reasoning cannot be assumed from model settings or instructions alone, and deserves systematic evaluation alongside reasoning ability itself.</p></div></section>
 
-      <section class="py-5">
-        <div class="container toc-wrap" style="max-width: 820px;">
-          <h2 class="section-title">&#128209; Table of Contents</h2>
-          <div class="section-rule"></div>
-          <ol class="toc-list"><li><a href="#abstract">&#128196; Abstract</a></li><li><a href="#overview">&#127775; Overview figure</a></li><li><a href="#measurement">&#128300; Three-level measurement</a></li><li><a href="#findings">&#128202; Key findings</a></li><li><a href="#paper">&#128203; Citation</a></li></ol>
-        </div>
-      </section>
+      <section id="motivation" class="py-5"><div class="container" style="max-width: 940px;"><div class="figure-plain reveal"><img src="assets/figure1.png" class="img-fluid w-100" alt="Surface proxies for no-thinking and their corresponding failure cases"></div><p class="fig-caption subtitle small mb-0 reveal"><strong>Figure 1.</strong> Surface proxies fail to identify response-level no-thinking. Prompt-side control, special reasoning tokens, and generation length can all leave visible question-conditioned text before the final answer. These failure cases motivate separating strict answer-only compliance, pre-answer relevance, and visible explicit inference.</p><div class="takeaway mt-4"><strong>The problem in one sentence.</strong> A model can be told not to think, omit a <code>&lt;think&gt;</code> block, or produce a short response&mdash;and still expose a compact, task-specific inferential step.</div></div></section>
 
-      <section id="abstract" class="py-5 bg-body-tertiary">
-        <div class="container" style="max-width: 820px;">
-          <h2 class="section-title">Abstract</h2>
-          <div class="section-rule"></div>
-          <p class="lead-abstract mb-3">Large Language Models (LLMs) increasingly ship with explicit ``thinking modes'', yet their counterpart, ``no-think'', has received far less attention. In this work, we study LLMs' ``no-think'' behavior along two axes.</p>
-          <p class="lead-abstract mb-3"><strong>a. How to measure ``no-thinking''?</strong> Prior work typically defines ``no-thinking'' through proxies such as a disabled thinking mode or the absence of long traces. These proxies are unreliable: disabled thinking modes still emit extended reasoning, or long traces often contain uninformative filler rather than genuine inference. We instead normalize any LLM response into pre-answer trace and final answer, and evaluate it at three levels: (i) an <strong>Empty-Thinking Ratio (ETR)</strong> for strict answer-only compliance; (ii) an instruction-aware <strong>Question--Pre-answer Relevance (QRel.)</strong> score to measure similarity between the question and pre-answer trace; and (iii) an additional LLM-as-judge <strong>Explicit Inference Rate (EIR)</strong> for visible explicit inference. Together, these levels separate answer-only output, relevant but non-inferential text, and explicit inference. Human studies demonstrate the effectiveness of these metrics.</p>
-          <p class="lead-abstract mb-0"><strong>b. How does no-thinking vary across tasks and models?</strong> We evaluate six prompting intervention settings on six widely used LLMs, both open-source and commercial, across three question types: Boolean, multiple-choice, and open-ended. We find that explicit no-think controls cannot reliably eliminate visible explicit inference; models instead exhibit <strong>``Thinking Inertia''</strong>: visible explicit inference persists even under strict no-thinking controls and becomes progressively more prevalent as the answer space opens. Accuracy remains relatively stable on Boolean and multiple-choice tasks, whereas open-ended tasks expose a trade-off between answer-only compliance and task accuracy. Finally, rewriting the same questions across answer spaces shows that supplying candidate answers makes answer-only responses substantially easier to produce. Taken together, these findings establish no-thinking as a non-trivial capability of LLMs: stopping explicit reasoning cannot be assumed from model settings or instructions alone, and deserves systematic evaluation alongside reasoning ability itself.</p>
-        </div>
-      </section>
+      <section id="response" class="py-5 bg-body-tertiary"><div class="container" style="max-width: 940px;"><div class="section-narrow"><h2 class="section-title">A response is more than a thinking switch</h2><div class="section-rule"></div><p class="res-text">We treat no-thinking as an observable response property. An intervention wraps the question, the model emits a response, and the response is decomposed into the visible pre-answer text <strong>T</strong> and the final answer <strong>A</strong>. The same final answer can be preceded by empty text, generic filler, relevant assertions, or an explicit inferential step.</p></div><div class="figure-plain reveal"><img src="assets/figure2.png" class="img-fluid w-100" alt="Response-level measurement framework showing question, intervention, model, pre-answer text, final answer, and measurement labels"></div><p class="fig-caption subtitle small mb-0 reveal"><strong>Figure 2.</strong> Response-centric measurement framework. The top shows the inference process and the decomposition into <strong>T</strong> and <strong>A</strong>; the bottom shows six response cases sharing the same question and final answer but differing in length, relevance, and inferential content.</p></div></section>
 
-      <section id="overview" class="py-5">
-        <div class="container" style="max-width: 940px;">
-          <div class="figure-plain reveal"><img src="assets/overview.png" class="img-fluid w-100" alt="ETR, EIR, QRel., and visible token length across answer spaces and intervention modes"></div>
-          <p class="fig-caption subtitle small mb-0 reveal">Response-level evidence for no-thinking: strict answer-only compliance, instruction-aware pre-answer relevance, visible explicit inference, and the accompanying token length across answer spaces and intervention modes.</p>
-        </div>
-      </section>
+      <section id="measurement" class="py-5"><div class="container" style="max-width: 820px;"><h2 class="section-title">From answer-only format to explicit inference</h2><div class="section-rule"></div><p class="res-text">The evaluation hierarchy makes each claim narrower and more testable. ETR checks the strict boundary, QRel. supplies an instruction-aware relevance signal, and EIR directly classifies visible inference. QRel. guides interpretation but is not itself evidence of reasoning.</p><div class="metric-tabs" id="metricTabs" role="tablist" aria-label="Response-level metrics"><button class="metric-tab active" type="button" role="tab" aria-selected="true" data-metric="etr"><span>01</span> ETR</button><button class="metric-tab" type="button" role="tab" aria-selected="false" data-metric="qrel"><span>02</span> QRel.</button><button class="metric-tab" type="button" role="tab" aria-selected="false" data-metric="eir"><span>03</span> EIR</button></div><div class="metric-description" id="metricDescription" aria-live="polite"><strong>ETR &mdash; Empty-Thinking Ratio.</strong> Strict answer-only compliance: the share of outputs with an empty visible pre-answer field <code>T</code>.</div><div class="metric-table-wrap"><table class="metric-table"><thead><tr><th>Level</th><th>Observable</th><th>Operational question</th></tr></thead><tbody><tr><th>1</th><td>ETR</td><td>Is the visible pre-answer field empty?</td></tr><tr><th>2</th><td>QRel.</td><td>Does the pre-answer text help answer the question?</td></tr><tr><th>3</th><td>EIR</td><td>Does the pre-answer text contain explicit inference?</td></tr></tbody></table></div><p class="small subtitle mt-3 mb-0">The Level 3 rubric separates generic/off-topic, paraphrase-only, relevant non-inferential, explicit reasoning, and unclear text; empty <strong>T</strong> is no visible inference by definition.</p></div></section>
 
-      <section id="measurement" class="py-5">
-        <div class="container" style="max-width: 820px;">
-          <h2 class="section-title">&#128300; Three levels, one response</h2>
-          <div class="section-rule"></div>
-          <p>Each level answers a different question about the same pair <code>(Q, T)</code>. Pick a label to see what it measures. QRel. is an instruction-aware relevance signal; it is not used by itself as a reasoning detector.</p>
-          <div class="metric-tabs" id="metricTabs" role="tablist" aria-label="Response-level metrics"><button class="metric-tab active" type="button" role="tab" aria-selected="true" data-metric="etr"><span>01</span> ETR</button><button class="metric-tab" type="button" role="tab" aria-selected="false" data-metric="qrel"><span>02</span> QRel.</button><button class="metric-tab" type="button" role="tab" aria-selected="false" data-metric="eir"><span>03</span> EIR</button></div>
-          <div class="metric-description" id="metricDescription" aria-live="polite"><strong>ETR &mdash; Empty-Thinking Ratio.</strong> Strict answer-only compliance: the share of outputs with an empty visible pre-answer field <code>T</code>.</div>
-          <div class="metric-table-wrap"><table class="metric-table"><thead><tr><th>Level</th><th>Observable</th><th>Question answered</th></tr></thead><tbody><tr><th>1</th><td>ETR</td><td>Is <code>T</code> empty?</td></tr><tr><th>2</th><td>QRel.</td><td>Does <code>T</code> help answer <code>Q</code>?</td></tr><tr><th>3</th><td>EIR</td><td>Does <code>T</code> contain explicit inference?</td></tr></tbody></table></div>
-        </div>
-      </section>
+      <section id="findings" class="py-5 bg-body-tertiary"><div class="container" style="max-width: 940px;"><h2 class="section-title">What the experiments reveal</h2><div class="section-rule"></div><h5 class="res-head">1. Answer space creates a staircase</h5><p class="res-text">Across native no-thinking and stricter no-thinking controls, the visible-inference ordering is consistent:</p><div class="result-statline"><span class="stat-pill">Bool</span><b>&lt;</b><span class="stat-pill">MCQ</span><b>&lt;</b><span class="stat-pill">Open</span><small>more answer freedom, more visible inference</small></div><p class="res-text mt-3">The pattern is not a consequence of a single proxy: ETR, QRel., and EIR show complementary aspects of the same response behavior.</p><div class="figure-plain results-figure reveal mt-4"><img src="assets/overview.png" class="img-fluid w-100" alt="ETR, EIR, QRel., and visible token length across answer spaces and intervention modes"></div><p class="fig-caption subtitle small mb-0"><strong>Results overview.</strong> The current three-level view pairs strict compliance, visible explicit inference, instruction-aware relevance, and pre-answer length across answer spaces and intervention modes.</p><h5 class="res-head mt-5">2. Stricter controls reduce, but do not erase, visible inference</h5><p class="res-text">Within every answer space, the mode relation is <strong>M5 &lt; M2</strong>. Stronger answer-only constraints suppress the visible signal, while the open-ended regime remains the most resistant&mdash;the response-level signature of thinking inertia.</p><div class="result-statline"><span class="stat-pill warm">M5</span><b>&lt;</b><span class="stat-pill cool">M2</span><small>the relation holds for Bool, MCQ, and Open</small></div><h5 class="res-head mt-5">3. Accuracy and compliance are separate axes</h5><p class="res-text">A cleaner answer-only format does not automatically mean a more capable answer. We therefore read accuracy on <strong>A</strong> alongside ETR, QRel., and EIR rather than treating any single output statistic as a complete definition of no-thinking.</p><h5 class="res-head mt-5">4. Matched rewrites isolate the answer interface</h5><p class="res-text mb-0">When the same underlying question is rewritten as Boolean, multiple-choice, or open-ended, the interface changes while task difficulty is held as closely as possible. Short targets alone do not explain the pattern: matched lengths can still differ sharply in question relevance.</p></div></section>
 
-      <section id="findings" class="py-5 bg-body-tertiary">
-        <div class="container" style="max-width: 940px;">
-          <h2 class="section-title">&#128202; Key findings</h2>
-          <div class="section-rule"></div>
-          <h5 class="res-head">The answer-space staircase</h5>
-          <p class="res-text">Across the three answer interfaces, visible explicit inference follows a stable ordering:</p>
-          <div class="result-statline"><span class="stat-pill">Bool</span><b>&lt;</b><span class="stat-pill">MCQ</span><b>&lt;</b><span class="stat-pill">Open</span><small>visible inference increases as the answer space opens</small></div>
-          <p class="res-text mt-3">Open-ended answers leave the most room for question-conditioned work to survive before the final answer. This staircase remains visible after separating relevance from explicit reasoning.</p>
-          <h5 class="res-head mt-5">Thinking inertia under stricter controls</h5>
-          <p class="res-text">Within each answer space, stricter no-thinking intervention reduces visible inference but does not erase the answer-space effect:</p>
-          <div class="result-statline"><span class="stat-pill warm">M5</span><b>&lt;</b><span class="stat-pill cool">M2</span><small>the same mode ordering holds across Bool, MCQ, and Open</small></div>
-          <h5 class="res-head mt-5">Observable, not latent</h5>
-          <p class="res-text mb-0">The title refers to retaining <em>visible explicit inference</em> when told not to think, not to hidden cognition. ETR, QRel., and EIR describe the emitted response and make its evidence auditable.</p>
-        </div>
-      </section>
+      <section class="py-5"><div class="container" style="max-width: 820px;"><h2 class="section-title">Checks that keep the interpretation narrow</h2><div class="section-rule"></div><p class="res-text">The main conclusions do not rest on QRel. alone. Alternative encoders test the relevance signal, Claude Opus 4.8 provides an independent-family replication of the Level 3 judge, and a blinded five-annotator study checks the metric hierarchy and its central answer-space and mode comparisons. These checks support claims about visible response behavior, not latent cognition.</p><div class="takeaway mt-4"><strong>Reading guide.</strong> ETR tells us whether the response reaches the answer-only boundary; QRel. tells us whether residual text is question-relevant; EIR tells us whether that text contains an explicit inferential step.</div></div></section>
 
-      <section id="paper" class="py-5">
-        <div class="container" style="max-width: 820px;">
-          <h2 class="section-title">&#128203; BibTeX</h2>
-          <div class="section-rule"></div>
-          <p class="res-text">The public paper link will be added here when available.</p>
-          <div class="bibtex-wrap"><button class="copy-bib" type="button">Copy</button><pre id="bibtex-text">@article{lei2026thinkinginertia,
+      <section id="paper" class="py-5 bg-body-tertiary"><div class="container" style="max-width: 820px;"><h2 class="section-title">&#128203; BibTeX</h2><div class="section-rule"></div><p class="res-text">The public paper link will be added here when available.</p><div class="bibtex-wrap"><button class="copy-bib" type="button">Copy</button><pre id="bibtex-text">@article{lei2026thinkinginertia,
   title   = {Thinking Inertia: LLMs Keep Thinking When Told Not To},
   author  = {Lei, Dianqiao and Lin, Kevin Qinghong and Lu, Pan
              and Torr, Philip and Zou, James},
   year    = {2026}
-}</pre><span class="copy-status" role="status" aria-live="polite"></span></div>
-        </div>
-      </section>
+}</pre><span class="copy-status" role="status" aria-live="polite"></span></div></div></section>
     </main>
 
     <footer class="py-4 mt-auto border-top"><div class="container text-center subtitle small" style="max-width: 820px;">Thinking Inertia &middot; Tsinghua University &middot; University of Oxford &middot; Stanford University</div></footer>
