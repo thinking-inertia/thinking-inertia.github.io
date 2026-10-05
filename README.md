@@ -2,7 +2,7 @@
 
 Static project page for **Thinking Inertia: LLMs Keep Thinking When Told Not To**.
 
-The site is intentionally framework-free: `index.html`, `styles.css`, and `script.js` can be served directly by GitHub Pages. The demo video area is a styled placeholder; replace it with a `<video controls>` element when the final recording is ready.
+The site is intentionally framework-free: `index.html`, `styles.css`, and `script.js` can be served directly by GitHub Pages. It includes the narrated project video alongside the paper figures and interactive response demonstration.
 
 ## Local preview
 
