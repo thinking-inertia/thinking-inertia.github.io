@@ -49,24 +49,37 @@
   const demo = document.querySelector('.response-demo');
   const toggle = document.querySelector('#thinkToggle');
   if (demo && toggle) {
-    const trace = demo.querySelector('.demo-trace');
+    const demoTitle = document.querySelector('#response-demo-title');
+    const demoIntro = document.querySelector('.response-demo-heading p');
+    const demoEyebrow = demo.querySelector('.demo-eyebrow');
+    const demoExample = demo.querySelector('.response-demo-top strong');
+    const demoQuestion = demo.querySelector('.demo-question');
     const traceNote = demo.querySelector('.demo-trace-note');
+    const answerNote = demo.querySelector('.demo-answer-note');
+    if (demoTitle) demoTitle.textContent = 'Same question. Two visible responses.';
+    if (demoIntro) demoIntro.textContent = 'Click the switch to compare what appears before the answer.';
+    if (demoEyebrow) demoEyebrow.textContent = 'QUESTION · SAME TARGET';
+    if (demoExample) demoExample.textContent = 'What is 17 × 19?';
+    if (demoQuestion) demoQuestion.hidden = true;
+    if (traceNote) traceNote.hidden = true;
+    if (answerNote) answerNote.hidden = true;
+    const trace = demo.querySelector('.demo-trace');
     const stateBadge = demo.querySelector('.demo-state-badge');
     const status = demo.querySelector('.demo-status');
     const label = toggle.querySelector('.switch-label');
     const states = {
       native: {
         trace: '17 × 20 = 340, then subtract 17. So the product is 323.',
-        note: 'The answer is correct, but a visible inferential step remains before it.',
+        note: 'Visible inference remains before the answer.',
         badge: 'EXPLICIT INFERENCE',
-        status: 'Native no-think · visible pre-answer text remains',
+        status: 'NATIVE NO-THINK · T ≠ ∅',
         label: 'NATIVE NO-THINK'
       },
       strict: {
-        trace: '—',
-        note: 'No visible pre-answer text; the final answer is still evaluated separately.',
+        trace: '∅',
+        note: 'No visible pre-answer text.',
         badge: 'EMPTY',
-        status: 'Strict answer-only · T is empty',
+        status: 'STRICT ANSWER-ONLY · T = ∅',
         label: 'STRICT ANSWER-ONLY'
       }
     };
