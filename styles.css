@@ -60,14 +60,16 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .response-demo[data-state="strict"] .demo-pane-trace { border-top-color: #6b9a58; }
 .response-demo[data-state="strict"] .demo-pane-trace .demo-pane-head em { border-color: #cde2d1; color: #5c8e64; background: #f6fbf5; }
 .response-demo[data-state="strict"] .demo-trace { color: #7b8b83; font-style: italic; }
-.title-main { color: var(--sl-ink); font-weight: 700; letter-spacing: -.035em; }
+.title-main { color: var(--sl-ink); font-family: "Nunito", Arial, sans-serif; font-weight: 900; letter-spacing: -.045em; }
 .brand-thinking { color: var(--sl-logo-blue); }.brand-inertia { color: var(--sl-green); }
 .authors .au { white-space: nowrap; color: var(--sl-ink); }.authors sup { color: var(--sl-gray); }
-.hero .subtitle.fs-4 { font-size: clamp(1.72rem, 3.2vw, 2.18rem) !important; line-height: 1.2; }
-.hero .authors { font-size: 1.12rem; }
-.hero .authors + .subtitle:not(.small) { font-size: 1.08rem; }
-.hero .subtitle.small { font-size: .9rem !important; }
-.hero .pill { font-size: 1rem; }
+.hero { padding-bottom: 4.25rem !important; }
+.hero .title-main { font-size: clamp(3.5rem, 6.8vw, 5.25rem) !important; }
+.hero .subtitle.fs-4 { font-size: clamp(1.9rem, 3.7vw, 2.55rem) !important; line-height: 1.18; }
+.hero .authors { font-size: 1.3rem; }
+.hero .authors + .subtitle:not(.small) { font-size: 1.22rem; }
+.hero .subtitle.small { font-size: 1rem !important; }
+.hero .pill { font-size: 1.08rem; padding: .52rem 1.18rem; }
 .pill { display: inline-flex; align-items: center; gap: .46rem; border-radius: 999px; padding: .45rem 1.08rem; font-size: .95rem; font-weight: 500; }.pill:hover { transform: translateY(-1px); }.button-icon { width: 1.25rem; height: 1.25rem; flex: 0 0 1.25rem; color: currentColor; }.button-icon-github { width: 1.3rem; height: 1.3rem; flex-basis: 1.3rem; }.button-note { margin-left: -.12rem; color: #aeb4bb; font-size: .72rem; }
 .pill .button-icon { display: none; }
 .pill::before { width: 1.3rem; height: 1.3rem; flex: 0 0 1.3rem; background-position: center; background-repeat: no-repeat; background-size: contain; content: ""; }
@@ -142,7 +144,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 @media (max-width: 680px) { .response-demo-section { padding-top: 1.65rem; }.response-demo { padding: .9rem .7rem .72rem; }.response-demo-top { align-items: flex-start; flex-direction: column; gap: .7rem; }.think-switch { align-self: flex-start; }.demo-response-grid { grid-template-columns: 1fr; }.demo-question { gap: .55rem; }.demo-footer { flex-wrap: wrap; }.demo-foot-rule { display: none; } }
 
 /* Compact response demo: the interaction carries the explanation. */
-.response-demo-section { padding-top: 1.8rem; }
+.response-demo-section { padding-top: 1.8rem; background: linear-gradient(to bottom, #eef3f9 0, #eef3f9 2.2rem, #fff 2.2rem, #fff 100%); }
 .response-demo-heading { margin-bottom: .85rem; }
 .response-demo-heading h2 { font-size: clamp(1.45rem, 2.4vw, 1.9rem); }
 .response-demo-heading p { margin-top: .25rem; font-size: .82rem; }
