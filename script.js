@@ -51,18 +51,26 @@
   if (demo && toggle) {
     const demoTitle = document.querySelector('#response-demo-title');
     const demoIntro = document.querySelector('.response-demo-heading p');
+    const demoKicker = document.querySelector('.response-demo-heading .section-kicker');
     const demoEyebrow = demo.querySelector('.demo-eyebrow');
     const demoExample = demo.querySelector('.response-demo-top strong');
     const demoQuestion = demo.querySelector('.demo-question');
+    const paneLabels = demo.querySelectorAll('.demo-pane-head > span');
+    const paneBadges = demo.querySelectorAll('.demo-pane-head > em');
     const traceNote = demo.querySelector('.demo-trace-note');
     const answerNote = demo.querySelector('.demo-answer-note');
     if (demoTitle) demoTitle.textContent = 'Same question. Two visible responses.';
     if (demoIntro) demoIntro.textContent = 'Click the switch to compare what appears before the answer.';
-    if (demoEyebrow) demoEyebrow.textContent = 'QUESTION · SAME TARGET';
+    if (demoKicker) demoKicker.textContent = 'Interactive response demo';
+    if (demoEyebrow) demoEyebrow.textContent = 'Question · same target';
     if (demoExample) demoExample.textContent = 'What is 17 × 19?';
     if (demoQuestion) demoQuestion.hidden = true;
     if (traceNote) traceNote.hidden = true;
     if (answerNote) answerNote.hidden = true;
+    if (paneLabels[0]) paneLabels[0].firstChild.textContent = 'Pre-answer text ';
+    if (paneLabels[1]) paneLabels[1].firstChild.textContent = 'Final answer ';
+    if (paneBadges[0]) paneBadges[0].textContent = 'Explicit inference';
+    if (paneBadges[1]) paneBadges[1].textContent = 'Parsed';
     const trace = demo.querySelector('.demo-trace');
     const stateBadge = demo.querySelector('.demo-state-badge');
     const status = demo.querySelector('.demo-status');
@@ -71,16 +79,16 @@
       native: {
         trace: '17 × 20 = 340, then subtract 17. So the product is 323.',
         note: 'Visible inference remains before the answer.',
-        badge: 'EXPLICIT INFERENCE',
-        status: 'NATIVE NO-THINK · T ≠ ∅',
-        label: 'NATIVE NO-THINK'
+        badge: 'Explicit inference',
+        status: 'Native no-think · T ≠ ∅',
+        label: 'Native no-think'
       },
       strict: {
         trace: '∅',
         note: 'No visible pre-answer text.',
-        badge: 'EMPTY',
-        status: 'STRICT ANSWER-ONLY · T = ∅',
-        label: 'STRICT ANSWER-ONLY'
+        badge: 'Empty',
+        status: 'Strict answer-only · T = ∅',
+        label: 'Strict answer-only'
       }
     };
     toggle.addEventListener('click', () => {
