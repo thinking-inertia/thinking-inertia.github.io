@@ -192,7 +192,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .demo-pane-head em { border-color: rgba(255, 255, 255, .55); color: #fff; background: rgba(255, 255, 255, .13); font-family: var(--display-font); font-size: .63rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .demo-pane-answer .demo-pane-head { color: #395b78; }
 .demo-pane-answer .demo-pane-head em { border-color: rgba(57, 91, 120, .25); color: #395b78; background: rgba(255, 255, 255, .42); }
-.demo-trace { color: #fff; font-size: .98rem; line-height: 1.42; }
+.demo-trace { color: #18232d; font-size: .98rem; line-height: 1.42; }
 .demo-answer { color: #397e3b; font-size: 1.85rem; }
 .demo-footer { margin: .7rem .15rem 0; padding-top: .62rem; border-top: 1px solid #d6e0ea; color: #60778b; font-family: var(--display-font); font-size: .7rem; letter-spacing: 0; }
 .demo-foot-rule { background: #c4d1dd; }
