@@ -167,10 +167,12 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 /* Framed response board: use one visual surface instead of stacked AI-style cards. */
 .response-demo-section .section-kicker { letter-spacing: .04em; text-transform: none; }
 .response-demo { padding: 0 .95rem .72rem; border: 1px solid #dbe4ee; border-radius: 1rem; background: #f1f5fa; box-shadow: 0 12px 28px rgba(45, 67, 91, .08); }
-.response-demo-top { margin: 0 -.95rem; padding: .9rem 1.15rem; border: 0; border-radius: 1rem 1rem 0 0; background: #dce7f2; }
+.response-demo-top { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; margin: 0 -.95rem; padding: .9rem 1.15rem; border: 0; border-radius: 1rem 1rem 0 0; background: #dce7f2; }
 .demo-eyebrow { margin-bottom: .14rem; color: #4f7599; font-family: var(--display-font); font-size: .67rem; font-weight: 700; letter-spacing: .02em; text-transform: none; }
 .response-demo-top strong { color: #18232f; font-size: 1.18rem; }
 .think-switch { border-color: rgba(82, 111, 137, .25); color: #314c64; background: rgba(255, 255, 255, .78); }
+.response-demo-top .think-switch { grid-column: 2; grid-row: 1; justify-self: center; }
+.demo-top-kicker { grid-column: 3; grid-row: 1; justify-self: end; color: var(--sl-ink); font-family: var(--display-font); font-size: .68rem; font-weight: 650; letter-spacing: .01em; white-space: nowrap; }
 .switch-label { font-family: var(--display-font); font-size: .69rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
 .demo-response-grid { margin-top: 1rem; padding: 0 .05rem; }
 .demo-pane { min-height: 112px; padding: .66rem .82rem .58rem; border: 0; border-radius: .78rem; box-shadow: none; }
@@ -189,5 +191,4 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .response-demo[data-state="strict"] .demo-pane-trace { border-top: 0; background: #c0dcef; }
 .response-demo[data-state="strict"] .demo-trace { color: #fff; font-size: 1.2rem; }
 
-/* Keep the original status row intact and place only the interaction label at the bottom center. */
-.demo-footer-kicker { margin-top: .48rem; color: var(--sl-ink); font-family: var(--display-font); font-size: .68rem; font-weight: 650; letter-spacing: .01em; text-align: center; }
+@media (max-width: 680px) { .response-demo-top { display: flex; align-items: flex-start; flex-direction: column; gap: .55rem; }.response-demo-top .think-switch { align-self: center; order: 2; }.demo-top-kicker { align-self: flex-end; order: 3; }.response-demo-top > div { order: 1; } }
