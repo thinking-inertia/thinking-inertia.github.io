@@ -180,7 +180,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .response-demo-top strong { color: #18232f; font-size: 1.18rem; }
 .think-switch { border-color: rgba(82, 111, 137, .25); color: #314c64; background: rgba(255, 255, 255, .78); }
 .response-demo-top .think-switch { grid-column: 2; grid-row: 1; justify-self: center; }
-.demo-top-kicker { grid-column: 3; grid-row: 1; justify-self: end; color: var(--sl-ink); font-family: var(--display-font); font-size: .68rem; font-weight: 650; letter-spacing: .01em; white-space: nowrap; }
+.demo-top-kicker { grid-column: 3; grid-row: 1; justify-self: end; color: var(--sl-ink); font-family: var(--display-font); font-size: .82rem; font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
 .switch-label { font-family: var(--display-font); font-size: .69rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
 .demo-response-grid { margin-top: 1rem; padding: 0 .05rem; }
 .demo-pane { min-height: 112px; padding: .66rem .82rem .58rem; border: 0; border-radius: .78rem; box-shadow: none; }
