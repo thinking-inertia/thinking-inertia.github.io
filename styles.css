@@ -189,10 +189,5 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .response-demo[data-state="strict"] .demo-pane-trace { border-top: 0; background: #a8cae6; }
 .response-demo[data-state="strict"] .demo-trace { color: #fff; font-size: 1.2rem; }
 
-/* Keep the interaction label in the response board's footer, centered between the state and provenance notes. */
-.demo-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .8rem; }
-.demo-footer-status, .demo-footer-meta { display: flex; align-items: center; gap: .42rem; min-width: 0; }
-.demo-footer-meta { justify-content: flex-end; }
-.demo-footer-kicker { color: var(--sl-ink); font-family: var(--display-font); font-size: .68rem; font-weight: 650; letter-spacing: .01em; text-align: center; white-space: nowrap; }
-.demo-footer .demo-status { min-width: 0; }
-@media (max-width: 680px) { .demo-footer { grid-template-columns: 1fr; justify-items: center; gap: .42rem; text-align: center; }.demo-footer-status, .demo-footer-meta { justify-content: center; }.demo-footer-kicker { grid-row: 1; }.demo-footer-status { grid-row: 2; }.demo-footer-meta { grid-row: 3; }.demo-foot-rule { display: none; } }
+/* Keep the original status row intact and place only the interaction label at the bottom center. */
+.demo-footer-kicker { margin-top: .48rem; color: var(--sl-ink); font-family: var(--display-font); font-size: .68rem; font-weight: 650; letter-spacing: .01em; text-align: center; }
