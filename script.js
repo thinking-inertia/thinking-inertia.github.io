@@ -51,7 +51,6 @@
   if (demo && toggle) {
     const demoTitle = document.querySelector('#response-demo-title');
     const demoIntro = document.querySelector('.response-demo-heading p');
-    const demoKicker = document.querySelector('.response-demo-heading .section-kicker');
     const demoEyebrow = demo.querySelector('.demo-eyebrow');
     const demoExample = demo.querySelector('.response-demo-top strong');
     const demoQuestion = demo.querySelector('.demo-question');
@@ -61,7 +60,6 @@
     const answerNote = demo.querySelector('.demo-answer-note');
     if (demoTitle) demoTitle.textContent = 'Same question. Two visible responses.';
     if (demoIntro) demoIntro.textContent = 'Click the switch to compare what appears before the answer.';
-    if (demoKicker) demoKicker.textContent = 'Interactive response demo';
     if (demoEyebrow) demoEyebrow.textContent = 'Question · same target';
     if (demoExample) demoExample.textContent = 'What is 17 × 19?';
     if (demoQuestion) demoQuestion.hidden = true;
