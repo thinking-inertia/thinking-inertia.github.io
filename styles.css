@@ -63,6 +63,11 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .title-main { color: var(--sl-ink); font-weight: 700; letter-spacing: -.035em; }
 .brand-thinking { color: var(--sl-logo-blue); }.brand-inertia { color: var(--sl-green); }
 .authors .au { white-space: nowrap; color: var(--sl-ink); }.authors sup { color: var(--sl-gray); }
+.hero .subtitle.fs-4 { font-size: clamp(1.72rem, 3.2vw, 2.18rem) !important; line-height: 1.2; }
+.hero .authors { font-size: 1.12rem; }
+.hero .authors + .subtitle:not(.small) { font-size: 1.08rem; }
+.hero .subtitle.small { font-size: .9rem !important; }
+.hero .pill { font-size: 1rem; }
 .pill { display: inline-flex; align-items: center; gap: .46rem; border-radius: 999px; padding: .45rem 1.08rem; font-size: .95rem; font-weight: 500; }.pill:hover { transform: translateY(-1px); }.button-icon { width: 1.25rem; height: 1.25rem; flex: 0 0 1.25rem; color: currentColor; }.button-icon-github { width: 1.3rem; height: 1.3rem; flex-basis: 1.3rem; }.button-note { margin-left: -.12rem; color: #aeb4bb; font-size: .72rem; }
 .pill .button-icon { display: none; }
 .pill::before { width: 1.3rem; height: 1.3rem; flex: 0 0 1.3rem; background-position: center; background-repeat: no-repeat; background-size: contain; content: ""; }
