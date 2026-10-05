@@ -174,8 +174,8 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .switch-label { font-family: var(--display-font); font-size: .69rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
 .demo-response-grid { margin-top: 1rem; padding: 0 .05rem; }
 .demo-pane { min-height: 112px; padding: .66rem .82rem .58rem; border: 0; border-radius: .78rem; box-shadow: none; }
-.demo-pane-trace { background: #6ea6d8; }
-.demo-pane-answer { background: #b8d4eb; }
+.demo-pane-trace { background: #8fbde1; }
+.demo-pane-answer { background: #d2e4f2; }
 .demo-pane-head { color: rgba(255, 255, 255, .95); }
 .demo-pane-head > span { color: inherit; font-family: var(--display-font); font-size: .87rem; font-weight: 600; letter-spacing: 0; }
 .demo-pane-head strong { color: inherit; font-family: Georgia, serif; font-size: 1.05rem; }
@@ -186,7 +186,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .demo-answer { color: #397e3b; font-size: 1.85rem; }
 .demo-footer { margin: .7rem .15rem 0; padding-top: .62rem; border-top: 1px solid #d6e0ea; color: #60778b; font-family: var(--display-font); font-size: .7rem; letter-spacing: 0; }
 .demo-foot-rule { background: #c4d1dd; }
-.response-demo[data-state="strict"] .demo-pane-trace { border-top: 0; background: #a8cae6; }
+.response-demo[data-state="strict"] .demo-pane-trace { border-top: 0; background: #c0dcef; }
 .response-demo[data-state="strict"] .demo-trace { color: #fff; font-size: 1.2rem; }
 
 /* Keep the original status row intact and place only the interaction label at the bottom center. */
