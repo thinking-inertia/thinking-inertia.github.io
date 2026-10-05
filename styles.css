@@ -63,7 +63,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .title-main { color: var(--sl-ink); font-weight: 700; letter-spacing: -.035em; }
 .brand-thinking { color: var(--sl-logo-blue); }.brand-inertia { color: var(--sl-green); }
 .authors .au { white-space: nowrap; color: var(--sl-ink); }.authors sup { color: var(--sl-gray); }
-.pill { border-radius: 999px; padding: .45rem 1.08rem; font-size: .95rem; font-weight: 500; }.pill:hover { transform: translateY(-1px); }.button-note { margin-left: .22rem; color: #aeb4bb; font-size: .72rem; }
+.pill { display: inline-flex; align-items: center; gap: .46rem; border-radius: 999px; padding: .45rem 1.08rem; font-size: .95rem; font-weight: 500; }.pill:hover { transform: translateY(-1px); }.button-icon { width: 1.25rem; height: 1.25rem; flex: 0 0 1.25rem; color: currentColor; }.button-icon-github { width: 1.3rem; height: 1.3rem; flex-basis: 1.3rem; }.button-note { margin-left: -.12rem; color: #aeb4bb; font-size: .72rem; }
 
 .main-video { position: relative; overflow: hidden; aspect-ratio: 16 / 9; border-radius: .8rem; background: #e7edf3; box-shadow: 0 8px 28px rgba(16, 25, 40, .12); }
 .project-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #e7edf3; }
