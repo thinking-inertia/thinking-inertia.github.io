@@ -79,7 +79,7 @@ p, .lead-abstract, .res-text, .fig-caption { text-wrap: pretty; }
 .pill { display: inline-flex; align-items: center; gap: .46rem; border-radius: 999px; padding: .45rem 1.08rem; font-size: .95rem; font-weight: 500; }.pill:hover { transform: translateY(-1px); }.button-icon { width: 1.25rem; height: 1.25rem; flex: 0 0 1.25rem; color: currentColor; }.button-icon-github { width: 1.3rem; height: 1.3rem; flex-basis: 1.3rem; }.button-note { margin-left: -.12rem; color: #aeb4bb; font-size: .72rem; }
 .pill .button-icon { display: none; }
 .pill::before { width: 1.3rem; height: 1.3rem; flex: 0 0 1.3rem; background-position: center; background-repeat: no-repeat; background-size: contain; content: ""; }
-.pill[href="#paper"]::before { background-image: url("https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/arxiv.svg"); filter: brightness(0) invert(1); }
+.pill[href^="https://arxiv.org/abs/"]::before { background-image: url("https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/arxiv.svg"); filter: brightness(0) invert(1); }
 .pill[href*="github.com"]::before { background-image: url("https://cdn.simpleicons.org/github/ffffff"); }
 .pill[href*="huggingface.co/datasets"]::before { background-image: url("https://cdn.simpleicons.org/huggingface/FFD21E"); }
 
